@@ -17,6 +17,8 @@ public class Moto extends Vehiculo {
     public void setCilindraje(int cilindraje){
     if (cilindraje>0){
     this.cilindraje=cilindraje;
+    }else{
+        System.out.println("El cilindraje debe ser mayor a 0");
     }
     }
     public Moto(String placa,int hora,int cilindraje){
@@ -28,7 +30,7 @@ public class Moto extends Vehiculo {
         int precioHora=1000;
         if(cilindraje>200){
         double totalCobro=getHora()*precioHora;
-        return totalCobro*0.2;
+        return totalCobro*+totalCobro*0.2;
         }else{
         return getHora()*precioHora;
         }

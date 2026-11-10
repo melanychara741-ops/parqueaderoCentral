@@ -11,12 +11,12 @@ public abstract class Vehiculo {
     
     private String placa;
     private int hora;
-    static int totalVehiculosCreados=0;
+    private static int totalVehiculosCreados=0;
     
     public String getPlaca(){return this.placa;}
     public void setPlaca(String placa){
-    if(placa==null){
-    System.out.println("La placa no puede ser nula");
+    if(placa==null|| placa.isEmpty()){
+    System.out.println("La placa no puede ser nula ni vacia");
     }else{
     this.placa=placa;
     }
@@ -36,11 +36,7 @@ public abstract class Vehiculo {
     setHora(hora);
     totalVehiculosCreados++;
     }
-    public Vehiculo(String placa){
-    this(placa,1);
-    totalVehiculosCreados++;
-    }
-    
+
     public static int getTotalVehiculos(){
     return totalVehiculosCreados;
     }

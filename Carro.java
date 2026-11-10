@@ -13,16 +13,12 @@ public class Carro extends Vehiculo{
     public Carro(String placa,int hora){
     super(placa,hora);
     }
-    public Carro(String placa){
-    super(placa,0);
-    }
-    
+
     @Override
     public double calcularCobro(){
     double total=0;
     total=getHora()*precioHora;
     if(total>15000){
-    System.out.println("Se ha superado el cobro maximo diario de 15mil");
     total=15000;
     return total;
     }else{

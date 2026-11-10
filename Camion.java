@@ -14,7 +14,7 @@ public class Camion extends Vehiculo{
     
     public int getToneladas(){return this.toneladas;}
     public void setToneladas(int toneladas){
-    if(toneladas>0){
+    if(toneladas>=0){
     this.toneladas=toneladas;
     }else{
     System.out.println("No se puede tener valores negativos en las toneladas");
@@ -27,7 +27,7 @@ public class Camion extends Vehiculo{
     @Override
     public double calcularCobro(){
     double totalcobro=precioHora*getHora();
-    return totalcobro+500*toneladas;
+    return getHora()*totalcobro+500*toneladas;
     }
     @Override
     public String toString(){
