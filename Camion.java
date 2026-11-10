@@ -10,7 +10,8 @@
 public class Camion extends Vehiculo{
    
     private int toneladas;
-    double precioHora=3000;
+    private static final double PRECIO_HORA = 3000;
+    private static final double COSTO_POR_TONELADA = 500;
     
     public int getToneladas(){return this.toneladas;}
     public void setToneladas(int toneladas){
@@ -26,7 +27,7 @@ public class Camion extends Vehiculo{
     }
     @Override
     public double calcularCobro(){
-    return getHora()*(3000 + 500 * toneladas);
+    return getHora()*(PRECIO_HORA + COSTO_POR_TONELADA * toneladas);
     }
     @Override
     public String toString(){

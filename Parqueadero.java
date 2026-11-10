@@ -59,9 +59,9 @@ public class Parqueadero {
  
     public int cuposLibres() {
     int libres = 0;
-    for (Vehiculo[] piso : cupos) {
-    for (Vehiculo v : piso) {
-    if (v == null) {
+    for (int i = 0; i < cupos.length; i++) {
+    for (int j = 0; j < cupos[i].length; j++) {
+    if (cupos[i][j] == null) {
     libres++;
     }
     }
@@ -72,11 +72,11 @@ public class Parqueadero {
 
     public Vehiculo mayorCobro() {
     Vehiculo mayor = null;
-    for (Vehiculo[] piso : cupos) {
-    for (Vehiculo v : piso) {
-    if (v != null) {
-    if (mayor == null || v.calcularCobro() > mayor.calcularCobro()) {
-    mayor = v;
+    for (int i = 0; i < cupos.length; i++) {
+    for (int j = 0; j < cupos[i].length; j++) {
+    if (cupos[i][j] != null) {
+    if (mayor == null || cupos[i][j].calcularCobro() > mayor.calcularCobro()) {
+    mayor = cupos[i][j];
     }
     }
     }
@@ -91,7 +91,7 @@ public class Parqueadero {
     if (cupos[i][j] == null) {
     System.out.println("Cupo" + (j + 1) + ":LIBRE");
     }else {
-    System.out.println("  Cupo " + (j + 1) + ": " + cupos[i][j].getPlaca());
+    System.out.println("Cupo " + (j + 1) + ": " + cupos[i][j].getPlaca());
     }
     }
     }

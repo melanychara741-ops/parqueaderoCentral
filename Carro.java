@@ -8,7 +8,8 @@
  * @author Melany Chara,Sara Catacoli y Nicolas Garzon
  */
 public class Carro extends Vehiculo{
-    private double precioHora=2000;
+    private static final double PRECIO_HORA = 2000;
+    private static final double TOPE_DIARIO = 15000;
     
     public Carro(String placa,int hora){
     super(placa,hora);
@@ -19,13 +20,14 @@ public class Carro extends Vehiculo{
 
     @Override
     public double calcularCobro(){
-    double total=0;
-    total=getHora()*precioHora;
-    if(total>15000){
-    total=15000;
-    return total;
-    }else{
+    double total = getHora() * PRECIO_HORA;
+    if(total>TOPE_DIARIO){
+    return TOPE_DIARIO;
+    }
     return total;
     }
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

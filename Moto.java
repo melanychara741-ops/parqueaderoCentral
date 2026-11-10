@@ -8,7 +8,9 @@
  * @author Melany Chara,Sara Catacoli y Nicolas Garzon
  */
 public class Moto extends Vehiculo {
-    
+    private static final double PRECIO_HORA = 1000;
+    private static final int LIMITE_CILINDRAJE = 200;
+    private static final double RECARGO = 1.2; 
     private int cilindraje;
     
     public int getCilindraje(){
@@ -27,12 +29,11 @@ public class Moto extends Vehiculo {
     }
     @Override
     public double calcularCobro(){
-        int precioHora=1000;
-        if(cilindraje>200){
-        double totalCobro=getHora()*precioHora;
-        return totalCobro+totalCobro*0.2;
+        double total = getHora() * PRECIO_HORA;
+        if(cilindraje>LIMITE_CILINDRAJE){
+        return total*RECARGO;
         }else{
-        return getHora()*precioHora;
+        return total;
         }
     
     }
