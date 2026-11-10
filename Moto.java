@@ -5,7 +5,7 @@
 
 /**
  *
- * @author HOME
+ * @author Melany Chara,Sara Catacoli y Nicolas Garzon
  */
 public class Moto extends Vehiculo {
     
@@ -30,7 +30,7 @@ public class Moto extends Vehiculo {
         int precioHora=1000;
         if(cilindraje>200){
         double totalCobro=getHora()*precioHora;
-        return totalCobro*+totalCobro*0.2;
+        return totalCobro+totalCobro*0.2;
         }else{
         return getHora()*precioHora;
         }

@@ -5,13 +5,16 @@
 
 /**
  *
- * @author HOME
+ * @author Melany Chara,Sara Catacoli y Nicolas Garzon
  */
 public class Carro extends Vehiculo{
-    double precioHora=2000;
+    private double precioHora=2000;
     
     public Carro(String placa,int hora){
     super(placa,hora);
+    }
+    public Carro(String placa) {
+    super(placa);
     }
 
     @Override

@@ -5,7 +5,7 @@
 
 /**
  *
- * @author HOME
+ * @author Melany Chara,Sara Catacoli y Nicolas Garzon
  */
 public class Camion extends Vehiculo{
    
@@ -26,8 +26,7 @@ public class Camion extends Vehiculo{
     }
     @Override
     public double calcularCobro(){
-    double totalcobro=precioHora*getHora();
-    return getHora()*totalcobro+500*toneladas;
+    return getHora()*(3000 + 500 * toneladas);
     }
     @Override
     public String toString(){

@@ -5,7 +5,7 @@
 
 /**
  *
- * @author HOME
+ * @author Melany Chara,Sara Catacoli y Nicolas Garzon
  */
 public class Parqueadero {
     private Vehiculo[][]cupos =new Vehiculo[3][4];

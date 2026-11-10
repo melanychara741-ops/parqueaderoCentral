@@ -5,7 +5,7 @@
 
 /**
  *
- * @author HOME
+ * @author Melany Chara,Sara Catacoli y Nicolas Garzon
  */
 public abstract class Vehiculo {
     
@@ -30,7 +30,9 @@ public abstract class Vehiculo {
     this.hora=hora;
     }
     }
-    
+    public Vehiculo(String placa) {
+    this(placa, 1);              
+    }
     public Vehiculo(String placa,int hora){
     setPlaca(placa);
     setHora(hora);
