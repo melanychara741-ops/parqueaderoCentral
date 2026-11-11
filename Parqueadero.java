@@ -10,6 +10,8 @@
 public class Parqueadero {
     private Vehiculo[][]cupos =new Vehiculo[3][4];
     private static double totalRecaudado;
+    private Vehiculo vehiculoMayorCobro;
+    private double mayorCobroValor;
     
     public static double getTotalRecaudado(){
     return totalRecaudado;
@@ -34,7 +36,7 @@ public class Parqueadero {
     public Vehiculo buscarPlaca(String placa){
     for(int i=0;i<cupos.length;i++){
     for(int j=0;j<cupos[i].length;j++){
-    if(cupos[i][j]!=null && cupos[i][j].getPlaca().equals(placa)){
+    if(cupos[i][j]!=null && cupos[i][j].getPlaca().equalsIgnoreCase(placa)){
     return cupos[i][j];
     }
     }
@@ -46,14 +48,20 @@ public class Parqueadero {
     for (int i = 0; i < cupos.length; i++) {
     for (int j = 0; j < cupos[i].length; j++) {
     Vehiculo v = cupos[i][j];
-    if (v != null && v.getPlaca().equals(placa)) {
+    if (v != null && v.getPlaca().equalsIgnoreCase(placa)) {
     double cobro = v.calcularCobro();
     totalRecaudado += cobro;
+    
+    if(vehiculoMayorCobro==null || cobro>mayorCobroValor){   
+    vehiculoMayorCobro=v;                                
+    mayorCobroValor=cobro;                               
+}   
     cupos[i][j] = null;        
     return cobro;
     }
     }
     }
+    
     return -1;
     }
  
@@ -68,6 +76,10 @@ public class Parqueadero {
     }
     return libres;
     }
+    
+    public boolean estaVacio(){               
+        return cuposLibres()==cupos.length*cupos[0].length;
+    }
  
 
     public Vehiculo mayorCobro() {
@@ -81,21 +93,32 @@ public class Parqueadero {
     }
     }
     }
-    return mayor;
+    if(vehiculoMayorCobro!=null && (mayor==null || mayorCobroValor>mayor.calcularCobro())){
+        return vehiculoMayorCobro;      
+     }
+     return mayor;   
+    
     }
  
-    public void mostrarOcupacion() {
-    for (int i = 0; i < cupos.length; i++) {
-    System.out.println("Piso " + (i + 1) + ":");
-    for (int j = 0; j < cupos[i].length; j++) {
-    if (cupos[i][j] == null) {
-    System.out.println("Cupo" + (j + 1) + ":LIBRE");
-    }else {
-    System.out.println("Cupo " + (j + 1) + ": " + cupos[i][j].getPlaca());
+    public void mostrarOcupacion(){
+    System.out.print("        ");
+    for(int j=0;j<cupos[0].length;j++){
+        System.out.print("Cupo"+(j+1)+"  ");
     }
+    System.out.println();
+    for(int i=0;i<cupos.length;i++){
+        System.out.print("Piso "+(i+1)+"  ");
+        for(int j=0;j<cupos[i].length;j++){
+            if(cupos[i][j]==null){
+                System.out.print("  L    ");
+            }else{
+                System.out.print("  X    ");
+            }
+        }
+        System.out.println();
     }
-    }
-    }
+    System.out.println("X = ocupado   L = libre");
+}
 }
 
 
