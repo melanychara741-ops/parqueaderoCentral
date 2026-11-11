@@ -13,6 +13,15 @@ public abstract class Vehiculo {
     private int hora;
     private static int totalVehiculosCreados=0;
     
+
+    public Vehiculo(String placa) {
+    this(placa, 1);              
+    }
+    public Vehiculo(String placa,int hora){
+    setPlaca(placa);
+    setHora(hora);
+    totalVehiculosCreados++;
+    }
     public String getPlaca(){return this.placa;}
     public void setPlaca(String placa){
     if(placa==null|| placa.isEmpty()){
@@ -30,15 +39,6 @@ public abstract class Vehiculo {
     this.hora=hora;
     }
     }
-    public Vehiculo(String placa) {
-    this(placa, 1);              
-    }
-    public Vehiculo(String placa,int hora){
-    setPlaca(placa);
-    setHora(hora);
-    totalVehiculosCreados++;
-    }
-
     public static int getTotalVehiculos(){
     return totalVehiculosCreados;
     }
